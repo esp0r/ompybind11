@@ -20,6 +20,14 @@ ext_modules = [
         # Example: passing in the version to the compiled code
         define_macros=[("VERSION_INFO", __version__)],
     ),
+    Pybind11Extension(
+        "ompybind11",
+        ["src/omp.cpp"],
+        # Example: passing in the version to the compiled code
+        extra_compile_args=['-fopenmp'],
+        extra_link_args=['-fopenmp'],
+        define_macros=[("VERSION_INFO", __version__)],
+    ),
 ]
 
 setup(
